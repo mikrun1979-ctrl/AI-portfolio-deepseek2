@@ -1,0 +1,382 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Юлия Микрюкова | Портфолио AI-навыков</title>
+    <!-- Шрифты: современный гротеск для чистоты и иерархии -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f5faf8 0%, #ecf2ef 100%);
+            font-family: 'Inter', sans-serif;
+            color: #1a2a2b;
+            line-height: 1.4;
+            padding: 2rem 1.5rem;
+        }
+
+        /* контейнер с ограничением и отступами */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* ----- ГРАДИЕНТНЫЙ ЗАГОЛОВОК С ПРОЗРАЧНОСТЬЮ ТЕКСТА ----- */
+        .hero-gradient {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .gradient-headline {
+            font-size: clamp(2.6rem, 8vw, 5rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #2b5e3b, #7c4d8f, #3b9e5c, #b77fd8);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            animation: gradientFlow 8s ease infinite;
+            line-height: 1.2;
+            margin-bottom: 0.25rem;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .subhead-name {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            font-weight: 500;
+            color: #2d4735;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.2px;
+            border-left: 4px solid #9b6eb0;
+            padding-left: 1rem;
+        }
+
+        .section-caption {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: #5c6e5b;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Карточки навыков с анимацией при наведении */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0 3rem 0;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(2px);
+            border-radius: 32px;
+            padding: 1.5rem 1.6rem;
+            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+            border: 1px solid rgba(123, 192, 126, 0.25);
+            cursor: default;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            background: white;
+            box-shadow: 0 24px 36px -14px rgba(70, 90, 70, 0.25);
+            border-color: #c8a2dc;
+        }
+
+        .skill-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(125deg, #266e3b, #7c4f94);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.2rem;
+            display: inline-block;
+            border-bottom: 2px solid #c2e0c2;
+            padding-bottom: 4px;
+        }
+
+        .skill-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .skill-list li {
+            margin-bottom: 0.9rem;
+            padding-left: 1.3rem;
+            position: relative;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #1f3629;
+            line-height: 1.4;
+        }
+
+        .skill-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #9b6eb0;
+            font-weight: 600;
+        }
+
+        /* акцентные цветовые элементы */
+        .accent-badge {
+            background: #e3f0e4;
+            color: #2c5e36;
+            border-radius: 40px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 0.8rem;
+        }
+
+        /* ----- ПРИМЕРЫ КЕЙСОВ (выделенные блоки) ----- */
+        .cases-section {
+            margin: 3rem 0 2.5rem;
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .case-block {
+            background: linear-gradient(135deg, #ffffff, #fbf9fe);
+            border-left: 6px solid #6fbf4c;
+            border-radius: 28px;
+            padding: 1.5rem 1.5rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 6px 14px rgba(105, 70, 120, 0.08);
+        }
+
+        .case-block:hover {
+            border-left-color: #b87ad6;
+            transform: scale(1.01);
+            background: white;
+            box-shadow: 0 20px 28px -16px rgba(90, 70, 110, 0.2);
+        }
+
+        .case-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #8ac48e;
+            line-height: 1;
+            margin-bottom: 0.6rem;
+        }
+
+        .case-text {
+            font-weight: 500;
+            font-size: 1rem;
+            color: #1f3a2c;
+            line-height: 1.45;
+        }
+
+        .case-highlight {
+            background: #f0f7ef;
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: #416b4a;
+            margin-top: 0.8rem;
+        }
+
+        /* Сетка инструментов в виде тегов */
+        .tools-tag-section {
+            margin: 2rem 0 2rem;
+        }
+
+        .tag-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .tool-tag {
+            background: rgba(100, 160, 100, 0.12);
+            backdrop-filter: blur(2px);
+            border: 1px solid #c5e0ca;
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #2c5439;
+            transition: all 0.2s;
+            letter-spacing: -0.2px;
+        }
+
+        .tool-tag:hover {
+            background: #b77fd8;
+            border-color: #b77fd8;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(128, 90, 150, 0.2);
+        }
+
+        /* дополнительные акценты и иерархия */
+        .hr-light {
+            margin: 1rem 0 1.8rem;
+            height: 2px;
+            background: linear-gradient(90deg, #b3dcb3, #d7b7ed, #b3dcb3);
+            width: 100%;
+            border: none;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #66997b;
+            border-top: 1px solid #dce6df;
+            padding-top: 2rem;
+        }
+
+        /* адаптивные настройки — плавный переход */
+        @media (max-width: 680px) {
+            body {
+                padding: 1.2rem;
+            }
+            .skill-card {
+                padding: 1.2rem;
+            }
+            .gradient-headline {
+                line-height: 1.1;
+            }
+            .case-block {
+                padding: 1.2rem;
+            }
+            .tool-tag {
+                font-size: 0.75rem;
+                padding: 0.4rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 1. Современный градиентный заголовок с эффектом прозрачности -->
+    <div class="hero-gradient">
+        <div class="gradient-headline">ПОРТФОЛИО AI-навыков</div>
+        <div class="subhead-name">Микрюкова Юлия Николаевна</div>
+        <div class="section-caption">Ключевые AI-навыки и практические кейсы</div>
+    </div>
+
+    <!-- Карточки навыков с анимацией при наведении: 4 блока -->
+    <div class="skills-grid">
+        <!-- блок 1: Эффективная работа с нейросетями -->
+        <div class="skill-card">
+            <div class="skill-title">🧠 Эффективная работа с нейросетями</div>
+            <ul class="skill-list">
+                <li>Различаю ИИ, нейросети, ChatGPT, умею объяснять разницу простыми словами</li>
+                <li>Экономлю время на поиске информации</li>
+                <li>Применяю ChatGPT, DeepSeek, GIGAChat, YandexGPT и выбираю лучший результат</li>
+                <li>Применяю нейросети для экономии времени на выполнение рабочих задач</li>
+                <li>Применяю нейросети для личной эффективности</li>
+            </ul>
+            <span class="accent-badge">⚡ быстрый поиск</span>
+        </div>
+        <!-- блок 2: Промт-инжиниринг -->
+        <div class="skill-card">
+            <div class="skill-title">✨ Промт-инжиниринг</div>
+            <ul class="skill-list">
+                <li>Владею всеми техниками: ролевые, диалоговые, мультимодальные, последовательные</li>
+                <li>Умею адаптировать промт под задачу - знаю какая техника подходит для различного типа задач</li>
+                <li>Использую фреймворки для улучшения качества управленческих решений</li>
+            </ul>
+            <span class="accent-badge">🎯 точные сценарии</span>
+        </div>
+        <!-- блок 3: Применение нейросетей для рабочих задач -->
+        <div class="skill-card">
+            <div class="skill-title">📊 Автоматизация рабочих задач</div>
+            <ul class="skill-list">
+                <li>Автоматизация обработки данных, финансовых моделей, анализ отчетности</li>
+                <li>Разработка и автоматизация расчетов</li>
+            </ul>
+            <span class="accent-badge">📈 + эффективность</span>
+        </div>
+        <!-- блок 4: Личная эффективность -->
+        <div class="skill-card">
+            <div class="skill-title">🧘 Применяю нейросети для личной эффективности</div>
+            <ul class="skill-list">
+                <li>Составление диет</li>
+                <li>Составление плана тренировок</li>
+            </ul>
+            <span class="accent-badge">🌿 персонализация</span>
+        </div>
+    </div>
+
+    <!-- разделитель с акцентом -->
+    <hr class="hr-light">
+
+    <!-- 4. Примеры кейсов в выделенных блоках -->
+    <div class="cases-section">
+        <div style="font-size: 1.8rem; font-weight: 700; color: #2f5f3c; margin-bottom: 0.5rem;">📌 Практические кейсы</div>
+        <div class="cases-grid">
+            <div class="case-block">
+                <div class="case-number">Кейс 01</div>
+                <div class="case-text">Проведение анализа отчета о движении денежных средств, выявление причин кассовых разрывов, разработка пошагового плана их устранения</div>
+                <div class="case-highlight">💡 экономия времени до 70%</div>
+            </div>
+            <div class="case-block">
+                <div class="case-number">Кейс 02</div>
+                <div class="case-text">Проведение комплексного анализа финансового состояния компании, выработка рекомендаций по повышению эффективности и оптимизации проектного портфеля</div>
+                <div class="case-highlight">📊 стратегия роста</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Сетка инструментов в виде тегов (на основе упомянутых AI и технологий) -->
+    <div class="tools-tag-section">
+        <div style="font-weight: 600; font-size: 1.3rem; color: #41644a; margin-bottom: 0.2rem;">🔧 Инструментарий</div>
+        <div class="tag-grid">
+            <span class="tool-tag">ChatGPT</span>
+            <span class="tool-tag">DeepSeek</span>
+            <span class="tool-tag">GIGAChat</span>
+            <span class="tool-tag">YandexGPT</span>
+            <span class="tool-tag">Промт фреймворки</span>
+            <span class="tool-tag">Ролевые промты</span>
+            <span class="tool-tag">Мультимодальные сети</span>
+            <span class="tool-tag">Финансовые модели</span>
+            <span class="tool-tag">AI-аналитика</span>
+            <span class="tool-tag">Автоматизация расчетов</span>
+        </div>
+    </div>
+
+    <!-- дополнительная визуальная иерархия — секция ключевых слов эффективности -->
+    <div style="margin: 2rem 0 1rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center;">
+        <div style="background: linear-gradient(145deg, #ebf9ee, #f4ecfc); padding: 0.8rem 1.5rem; border-radius: 60px;">
+            <span style="font-weight: 600; color: #4d6f47;">⚡ экономия времени · 🤖 AI-интеграция · 📈 результативность</span>
+        </div>
+    </div>
+
+    <!-- Элемент для строгого соблюдения авторского текста (без выдумок) -->
+    <div class="footer-note">
+        <span>© Микрюкова Юлия Николаевна — портфолио AI-навыков</span><br>
+        <span style="font-size: 0.7rem;">нейросети, промт-инжиниринг, эффективность</span>
+    </div>
+</div>
+</body>
+</html>
